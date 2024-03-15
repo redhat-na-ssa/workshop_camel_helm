@@ -102,17 +102,6 @@ entries:
     urls:
     - https://rh-cloud-architecture-workshop.github.io/helm/charts/inventory-service-0.1.0.tgz
     version: 0.1.0
-  kafdrop:
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2023-01-31T19:31:20.406258082+01:00"
-    description: A Helm chart for Kafdrop
-    digest: b95466527ddfdf288f8743c8bd022ca688a96850fd57f9f134ccaa64bbf9770d
-    name: kafdrop
-    type: application
-    urls:
-    - https://globex-recommendation.github.io/globex-recommendation-helm/charts/kafdrop-0.1.0.tgz
-    version: 0.1.0
   order-db:
   - apiVersion: v2
     created: "2023-03-10T20:25:48.469986483+01:00"
