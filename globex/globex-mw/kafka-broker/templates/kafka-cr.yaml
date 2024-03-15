@@ -39,6 +39,12 @@ spec:
       inter.broker.protocol.version: '{{ .Values.kafka.config.interBrokerProtocolVersion }}'
     storage:
       type: ephemeral
+    metricsConfig:
+      type: jmxPrometheusExporter
+      valueFrom:
+        configMapKeyRef:
+          name: console-kafka-metrics
+          key: kafka-metrics-config.yml  
     resources:
       {{- toYaml .Values.kafka.resources | nindent 6 }}
   zookeeper:

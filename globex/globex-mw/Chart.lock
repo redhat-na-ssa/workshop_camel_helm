@@ -5,8 +5,5 @@ dependencies:
 - name: kafka-topics
   repository: file://kafka-topics
   version: 0.1.0
-- name: kafdrop
-  repository: file://kafdrop
-  version: 0.1.0
-digest: sha256:278460b5bdcb26864d62bda55ea65ada76957ccbaad6f88c44454101040dfda9
-generated: "2023-04-07T16:50:22.067861445+02:00"
+digest: sha256:2691ab484aa6402ef16721a6c47b1547e13482abf7f066191cda5590ee0cf0d0
+generated: "2024-03-15T17:04:03.131466236-04:00"
