@@ -15,7 +15,6 @@ kafka:
         cpu: 100m
         memory: 200M
   config:
-    allow.everyone.if.no.acl.found: 'true'
     autoCreateTopics: false
     defaultReplicationFactor: 3
     offsetsTopicReplicationFactor: 3
