@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "rhsso-db.name" . }}
+  name: {{ include "keycloak-db.name" . }}
   labels:
-    {{- include "rhsso-db.labels" . | nindent 4 }}
+    {{- include "keycloak-db.labels" . | nindent 4 }}
     app.openshift.io/runtime: postgresql
   annotations:
-    {{- include "rhsso-db.argocd-syncwave" . | nindent 4 }}
+    {{- include "keycloak-db.argocd-syncwave" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "rhsso-db.selectorLabels" . | nindent 6 }}
+      {{- include "keycloak-db.selectorLabels" . | nindent 6 }}
   strategy:
     type: Recreate
   template:
@@ -21,11 +21,11 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "rhsso-db.selectorLabels" . | nindent 8 }}
+        {{- include "keycloak-db.selectorLabels" . | nindent 8 }}
     spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      serviceAccountName: {{ include "rhsso-db.serviceAccountName" . }}
+      serviceAccountName: {{ include "keycloak-db.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -44,21 +44,21 @@ spec:
             - name: POSTGRESQL_USER
               valueFrom:
                 secretKeyRef:
-                  key: POSTGRES_USERNAME
-                  name: {{ include "rhsso-db.secretName" . }}
+                  key: database-user
+                  name: {{ include "keycloak-db.name" . }}
             - name: POSTGRESQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: {{ include "rhsso-db.secretName" . }}
+                  key: database-password
+                  name: {{ include "keycloak-db.name" . }}
             - name: POSTGRESQL_DATABASE
               valueFrom:
                 secretKeyRef:
-                  key: POSTGRES_DATABASE
-                  name: {{ include "rhsso-db.secretName" . }}
+                  key: database-name
+                  name: {{ include "keycloak-db.name" . }}
           {{- if eq .Values.persistence.mode "persistent" }}
           volumeMounts:
-            - name: "{{ include "rhsso-db.name" . }}-data"
+            - name: "{{ include "keycloak-db.name" . }}-data"
               mountPath: "/var/lib/pgsql/data"
               volumes:
       {{- end }}
@@ -66,7 +66,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
       {{- if eq .Values.persistence.mode "persistent" }}
       volumes:
-        - name: "{{ include "rhsso-db.name" . }}-data"
+        - name: "{{ include "keycloak-db.name" . }}-data"
           persistentVolumeClaim:
-            claimName: {{ include "rhsso-db.name" . }}
+            claimName: {{ include "keycloak-db.name" . }}
       {{- end }}

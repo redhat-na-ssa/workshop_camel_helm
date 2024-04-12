@@ -64,12 +64,6 @@ persistence:
   mode: persistent
   capacity: 5Gi
 
-selector:
-  app: rhsso
-
-keycloak:
-  name: keycloak
-
 argocd:
   enabled: true
   syncwave: "-3"

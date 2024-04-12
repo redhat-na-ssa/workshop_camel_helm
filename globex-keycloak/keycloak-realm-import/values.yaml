@@ -1,18 +1,21 @@
 keycloak:
   name: keycloak
 
-selector:
-  app: rhsso
+realm:
+  name: globex
+
+client:
+  gateway: globex-web-gateway
 
 loop:
   prefix: user
-  count: 10
+  count: 1
 
 hook:
   image:
     repository: quay.io/cloud-architecture-workshop/wait-for-statefulset-job
     pullPolicy: IfNotPresent
-    tag: "92f5ae2-native"
+    tag: "1c68180"
   serviceAccount:
     create: true
     name: ""
@@ -25,7 +28,7 @@ hook:
     capabilities:
       drop:
         - ALL
-  maxTimeToWait: 300000
+  maxTimeToWait: 120000
 
 argocd:
   enabled: true
