@@ -26,5 +26,11 @@ dependencies:
 - name: kafka-topics
   repository: file://globex-mw/kafka-topics
   version: 0.1.0
-digest: sha256:c7387d8082a1bf0b2c9b8395ee2e8e00dedd904c8990f966bfcd90c4e868f4d1
-generated: "2024-03-18T09:54:11.420748371-04:00"
+- name: order-service
+  repository: file://order-service
+  version: 0.1.0
+- name: customer-service
+  repository: file://customer-service
+  version: 0.1.0
+digest: sha256:8eb2ecc173efd9ee2f9dd62f0d625bcd87373e859f0c1a8fb3465f22a1dea827
+generated: "2024-12-05T16:32:55.469607984-05:00"
