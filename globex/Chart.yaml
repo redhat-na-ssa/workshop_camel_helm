@@ -39,4 +39,7 @@ dependencies:
     repository: file://order-service
   - name: customer-service
     version: 0.1.0
-    repository: file://customer-service          
+    repository: file://customer-service      
+  - name: order-db
+    version: 0.1.0
+    repository: file://order-db

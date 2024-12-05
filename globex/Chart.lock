@@ -32,5 +32,8 @@ dependencies:
 - name: customer-service
   repository: file://customer-service
   version: 0.1.0
-digest: sha256:8eb2ecc173efd9ee2f9dd62f0d625bcd87373e859f0c1a8fb3465f22a1dea827
-generated: "2024-12-05T16:32:55.469607984-05:00"
+- name: order-db
+  repository: file://order-db
+  version: 0.1.0
+digest: sha256:780351e68e60875115a67844ec8e82da9c08934eafa4aeebdeb97230aa07e16e
+generated: "2024-12-05T16:50:58.193697885-05:00"
