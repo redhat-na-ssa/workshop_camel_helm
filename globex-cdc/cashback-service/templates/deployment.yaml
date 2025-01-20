@@ -54,5 +54,7 @@ spec:
                   name: {{ .Values.cashbackDb.secret.name }}
             - name: QUARKUS_DATASOURCE_JDBC_URL
               value: jdbc:postgresql://{{ .Values.cashbackDb.name }}:5432/${POSTGRESQL_DATABASE}
+            - name: QUARKUS_LOG_LEVEL
+              value: debug
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
