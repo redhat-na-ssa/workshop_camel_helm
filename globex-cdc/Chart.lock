@@ -1,0 +1,18 @@
+dependencies:
+- name: kafka-connect
+  repository: file://kafka-connect
+  version: 0.1.0
+- name: cashback-db
+  repository: file://cashback-db
+  version: 0.1.0
+- name: cashback-service
+  repository: file://cashback-service
+  version: 0.1.0
+- name: order-aggregator
+  repository: file://order-aggregator
+  version: 0.1.0
+- name: cashback-connector
+  repository: file://cashback-connector
+  version: 0.1.0
+digest: sha256:1c151a7be7e49b5bb9402a7a292d24376609a9850685ee6fbec7a287a750eeac
+generated: "2025-01-21T09:55:05.989541693-05:00"

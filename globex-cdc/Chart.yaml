@@ -8,10 +8,6 @@ dependencies:
   - name: kafka-connect
     version: 0.1.0
     repository: file://kafka-connect
-  - name: debezium
-    version: 0.1.0
-    repository: file://debezium
-    condition: debezium.deploy
   - name: cashback-db
     version: 0.1.0
     repository: file://cashback-db
@@ -25,7 +21,3 @@ dependencies:
     version: 0.1.0
     repository: file://cashback-connector
     condition: cashbackConnector.deploy
-  - name: integration-platform
-    version: 0.1.0
-    repository: file://integration-platform
-    condition: integrationPlatform.deploy

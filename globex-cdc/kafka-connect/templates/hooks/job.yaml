@@ -7,6 +7,7 @@ metadata:
   annotations: 
     {{- if .Values.hook.argocd.enabled }}
     {{- include "kafka-connect-hook.argocd-syncwave" . | nindent 4 }}
+    argocd.argoproj.io/hook: PostSync
     {{- else }}
     "helm.sh/hook": post-install
     {{- end }}    
