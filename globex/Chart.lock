@@ -32,11 +32,14 @@ dependencies:
 - name: customer-service
   repository: file://customer-service
   version: 0.1.0
+- name: customer-connector
+  repository: file://customer-connector
+  version: 0.1.0
 - name: customer-db
   repository: file://customer-db
   version: 0.1.0
 - name: order-db
   repository: file://order-db
   version: 0.1.0
-digest: sha256:a1e7f41ea1e1adcf2cb5013e98a6c035ae3744a313cb111d43dcacb188a00932
-generated: "2024-12-05T16:57:02.951596525-05:00"
+digest: sha256:1821d25955888095f3f08fd5f3c06140d9893a369bde7dd8b3e9e36eb87896b6
+generated: "2025-01-22T14:21:18.58828859-05:00"

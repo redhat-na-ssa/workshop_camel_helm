@@ -1,8 +1,8 @@
 - route:
-    id: create-customer
+    id: create-customers
     from:
       id: from-1031
-      uri: "direct:createCustomer"
+      uri: direct:createCustomer
       steps:
         - unmarshal:
             id: unmarshal-1969
@@ -10,10 +10,12 @@
               unmarshalType: java.util.Map
         - log:
             id: log-1541
-            message: "Inserting customer: customer_id='${body[\"customerId\"]}', name='${body[\"customerName\"]}'"
+            message: "Inserting customer: customer_id='${body[\"customerId\"]}',
+              name='${body[\"customerName\"]}'"
         - to:
             id: to-4925
-            uri: "sql:INSERT INTO customer (customer_id, name) VALUES (:#customerId, :#customerName);"
+            uri: sql:INSERT INTO customer (customer_id, name) VALUES (:#customerId,
+              :#customerName);
             parameters:
               dataSource: "#customerDb"
         - setBody:
@@ -22,10 +24,10 @@
               simple:
                 expression: ${null}
 - route:
-    id: update-customer
+    id: update-customers
     from:
       id: from-1999
-      uri: "direct:updateCustomer"
+      uri: direct:updateCustomer
       steps:
         - unmarshal:
             id: unmarshal-2455
@@ -33,10 +35,12 @@
               unmarshalType: java.util.Map
         - log:
             id: log-3028
-            message: "Updating customer: customer_id='${header.customerId}', name='${body[\"customerName\"]}'"
+            message: "Updating customer: customer_id='${header.customerId}',
+              name='${body[\"customerName\"]}'"
         - to:
             id: to-2930
-            uri: "sql:UPDATE customer SET name=:#customerName WHERE customer_id=:#${header.customerId};"
+            uri: sql:UPDATE customer SET name=:#customerName WHERE
+              customer_id=:#${header.customerId};
             parameters:
               dataSource: "#customerDb"
         - setBody:
@@ -57,14 +61,15 @@
     id: get-customer
     from:
       id: from-2972
-      uri: "direct:getCustomer"
+      uri: direct:getCustomer
       steps:
         - log:
             id: log-1672
             message: "Fetching customer details: customer_id=${header.customerId}"
         - to:
             id: to-3840
-            uri: "sql:SELECT customer_id AS \"customerId\", name AS \"customerName\" FROM customer WHERE customer_id=:#${header.customerId};"
+            uri: sql:SELECT customer_id AS "customerId", name AS "customerName" FROM
+              customer WHERE customer_id=:#${header.customerId};
             parameters:
               dataSource: "#customerDb"
               outputType: SelectOne
@@ -92,17 +97,17 @@
                   simple:
                     expression: ${body} == ${null}
 - route:
-    id: delete-customer
+    id: delete-customers
     from:
       id: from-3182
-      uri: "direct:deleteCustomer"
+      uri: direct:deleteCustomer
       steps:
         - log:
             id: log-1166
             message: "Deleting customer: customer_id='${header.customerId}'"
         - to:
             id: to-2478
-            uri: "sql:DELETE FROM customer WHERE customer_id=:#${header.customerId};"
+            uri: sql:DELETE FROM customer WHERE customer_id=:#${header.customerId};
             parameters:
               dataSource: "#customerDb"
         - setBody:
@@ -114,14 +119,15 @@
     id: get-customers
     from:
       id: from-3388
-      uri: "direct:getCustomers"
+      uri: direct:getCustomers
       steps:
         - log:
             id: log-3283
             message: Getting customers
         - to:
             id: to-3601
-            uri: "sql:SELECT customer_id AS \"customerId\", name AS \"customerName\" FROM customer;"
+            uri: sql:SELECT customer_id AS "customerId", name AS "customerName" FROM
+              customer;
             parameters:
               dataSource: "#customerDb"
         - marshal:

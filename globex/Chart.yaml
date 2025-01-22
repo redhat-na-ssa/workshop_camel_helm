@@ -40,6 +40,9 @@ dependencies:
   - name: customer-service
     version: 0.1.0
     repository: file://customer-service
+  - name: customer-connector
+    version: 0.1.0
+    repository: file://customer-connector    
   - name: customer-db
     version: 0.1.0
     repository: file://customer-db              

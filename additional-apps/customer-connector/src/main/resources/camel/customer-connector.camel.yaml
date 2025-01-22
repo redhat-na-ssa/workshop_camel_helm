@@ -83,10 +83,7 @@
             message: "Creating customer: json='${body}'"
         - to:
             id: to-1405
-            uri: rest:post:/customers
-            parameters:
-              host: "{{customer-service.url:localhost:8080}}"
-              produces: application/json
+            uri: direct:createCustomer
 - route:
     id: update-customer
     from:
@@ -117,10 +114,7 @@
             message: "Updating customer: customerId='${header.customerId}', json='${body}'"
         - to:
             id: to-3479
-            uri: rest:put:/customers:/{customerId}
-            parameters:
-              host: "{{customer-service.url:localhost:8080}}"
-              produces: application/json
+            uri: direct:updateCustomer
 - route:
     id: delete-customer
     from:
@@ -148,6 +142,4 @@
             message: "Deleting customer: customerId='${header.customerId}'"
         - to:
             id: to-3778
-            uri: rest:delete:/customers:/{customerId}
-            parameters:
-              host: "{{customer-service.url:localhost:8080}}"
+            uri: direct:deleteCustomer

@@ -1,0 +1,13 @@
+image:
+  repository: quay.io/redhat_na_ssa/workshop_camel_customer_connector
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 250Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
